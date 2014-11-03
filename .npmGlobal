@@ -1,47 +1,41 @@
 #!/usr/bin/env bash
 
-# Ask for the administrator password upfront
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.npmGlobal` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-sudo npm install -g bower
-sudo npm install -g broccoli-cli
-sudo npm install -g brunch
-sudo npm install -g coffee-script
-sudo npm install -g coffeelint
-sudo npm install -g david
-sudo npm install -g ember-cli
-sudo npm install -g generator-assemble
-sudo npm install -g generator-bower
-sudo npm install -g generator-chromeapp
-sudo npm install -g generator-ember
-sudo npm install -g generator-generator
-sudo npm install -g generator-gruntfile
-sudo npm install -g generator-gruntplugin
-sudo npm install -g generator-gulp
-sudo npm install -g generator-jasmine
-sudo npm install -g generator-jekyllrb
-sudo npm install -g generator-jquery
-sudo npm install -g generator-karma
-sudo npm install -g generator-mg
-sudo npm install -g generator-mocha
-sudo npm install -g generator-mote
-sudo npm install -g generator-pho
-sudo npm install -g generator-requirejs
-sudo npm install -g generator-skeletor
-sudo npm install -g generator-webapp
-sudo npm install -g grunt-cli
-sudo npm install -g gulp
-sudo npm install -g jshint
-sudo npm install -g keybase-installer
-sudo npm install -g learnyounode
-sudo npm install -g lineman
-sudo npm install -g parker
-sudo npm install -g phantomjs
-sudo npm install -g pkg-name
-sudo npm install -g svgo
-sudo npm install -g uglify-js
-sudo npm install -g vtop
-sudo npm install -g yo
+npm install -g bower
+npm install -g broccoli-cli
+npm install -g brunch
+npm install -g coffee-script
+npm install -g coffeelint
+npm install -g david
+npm install -g ember-cli
+npm install -g generator-assemble
+npm install -g generator-bower
+npm install -g generator-chromeapp
+npm install -g generator-ember
+npm install -g generator-generator
+npm install -g generator-gruntfile
+npm install -g generator-gruntplugin
+npm install -g generator-gulp
+npm install -g generator-jasmine
+npm install -g generator-jekyllrb
+npm install -g generator-jquery
+npm install -g generator-karma
+npm install -g generator-mg
+npm install -g generator-mocha
+npm install -g generator-mote
+npm install -g generator-pho
+npm install -g generator-requirejs
+npm install -g generator-skeletor
+npm install -g generator-webapp
+npm install -g grunt-cli
+npm install -g gulp
+npm install -g jshint
+npm install -g keybase-installer
+npm install -g learnyounode
+npm install -g lineman
+npm install -g parker
+npm install -g phantomjs
+npm install -g pkg-name
+npm install -g svgo
+npm install -g uglify-js
+npm install -g vtop
+npm install -g yo
