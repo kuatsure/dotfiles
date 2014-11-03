@@ -1,0 +1,14 @@
+@import "packages/file-icons/stylesheets/colors"; // to use the colours
+@import "packages/file-icons/stylesheets/icons";  // to use the defined icons
+@import "packages/file-icons/stylesheets/items";
+
+@{pane-tab-selector}, .icon-file-text {
+  &[data-name^=".git"]:before { .git-icon; }
+  &[data-name="coffeelint.json"]:before { .coffee-icon; .medium-maroon; }
+  &[data-name^="Gemfile"]:before { .medium-red; }
+  // &[data-name^=".travis"]:before { .travis-icon; }
+}
+
+@{pane-tab-selector}, .icon-file-directory {
+  &[data-name^=".sass"]:before { .sass-icon; }
+}

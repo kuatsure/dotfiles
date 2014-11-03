@@ -1,0 +1,42 @@
+# Install native apps
+# Usage: `brew bundle Caskfile`
+
+install caskroom/cask/brew-cask
+tap caskroom/versions
+
+cask install airmail 2> /dev/null
+cask install alfred 2> /dev/null
+cask install appcleaner 2> /dev/null
+cask install archiver 2> /dev/null
+cask install atom 2> /dev/null
+cask install bartender 2> /dev/null
+cask install bettertouchtool 2> /dev/null
+cask install candybar 2> /dev/null
+cask install colloquy 2> /dev/null
+cask install daisydisk 2> /dev/null
+cask install dash 2> /dev/null
+cask install dropbox 2> /dev/null
+cask install droplr 2> /dev/null
+cask install evernote 2> /dev/null
+cask install firefox 2> /dev/null
+cask install fitbitconnect 2> /dev/null
+cask install forklift 2> /dev/null
+cask install google-chrome 2> /dev/null
+cask install google-chrome-canary 2> /dev/null
+cask install iterm2 2> /dev/null
+cask install macvim 2> /dev/null
+cask install macpawgemini 2> /dev/null
+cask install moom 2> /dev/null
+cask install mou 2> /dev/null
+cask install onepassword 2> /dev/null
+cask install opera 2> /dev/null
+cask install opera-developer 2> /dev/null
+cask install opera-next 2> /dev/null
+cask install parallels 2> /dev/null
+cask install rdio 2> /dev/null
+cask install skype 2> /dev/null
+cask install slack 2> /dev/null
+cask install slicy 2> /dev/null
+cask install sublime-text 2> /dev/null
+cask install ukelele 2> /dev/null
+cask install vlc 2> /dev/null

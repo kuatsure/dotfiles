@@ -1,0 +1,24 @@
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Node.js ignores
+npm-debug.log
+
+# Sublime Text ignores
+*.sublime-project
+*.sublime-workspace
+
+# For the sass lover in all of us
+.sass-cache
