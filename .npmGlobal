@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-npm install -g bower
-npm install -g broccoli-cli
-npm install -g brunch
-npm install -g coffee-script
-npm install -g coffeelint
 npm install -g david
-npm install -g ember-cli
 npm install -g generator-assemble
 npm install -g generator-chromeapp
 npm install -g generator-generator
@@ -20,15 +14,6 @@ npm install -g generator-mocha
 npm install -g generator-mote
 npm install -g generator-requirejs
 npm install -g generator-skeletor
-npm install -g grunt-cli
-npm install -g gulp
-npm install -g jshint
 npm install -g keybase-installer
 npm install -g learnyounode
-npm install -g lineman
-npm install -g parker
-npm install -g phantomjs
-npm install -g pkg-name
-npm install -g svgo
-npm install -g uglify-js
 npm install -g yo
