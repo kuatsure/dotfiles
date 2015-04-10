@@ -1,15 +1,14 @@
-@import "packages/file-icons/stylesheets/colors"; // to use the colours
-@import "packages/file-icons/stylesheets/icons";  // to use the defined icons
-@import "packages/file-icons/stylesheets/items";
+@import "packages/file-icons/styles/colors"; // to use the colours
+@import "packages/file-icons/styles/icons";  // to use the defined icons
+@import "packages/file-icons/styles/items";
 
 @{pane-tab-selector}, .icon-file-text,
 @{pane-tab-selector}, .icon-file-directory {
-  &[data-name^=".git"]:before { .git-icon; }
+  &[data-name*="git"]:before { .git-icon; }
   &[data-name="coffeelint.json"]:before { .coffee-icon; .medium-maroon; }
   &[data-name="package.json"]:before { .node-icon; }
   &[data-name^="Gem"]:before { .medium-red; }
-  &[data-name^=".sass"]:before { .sass-icon; }
-  &[data-name^="bower"]:before { .bower-icon; }
-  // &[data-name^=".travis"]:before { .travis-icon; }
+  &[data-name*="sass"]:before { .sass-icon; }
+  &[data-name*="bower"]:before { .bower-icon; }
   // &[data-name^="yo"]:before { .yeoman-icon; }
 }
