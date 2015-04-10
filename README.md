@@ -83,6 +83,7 @@ Suggestions/improvements
 
 ## Thanks to…
 
+* [Ryan Cromwell](http://cromwellhaus.com/) and [the eye opening idea of extreme portability](https://github.com/cromwellryan/dotfiles)
 * [Mathias Bynens](https://mathiasbynens.be/) and [his awesome repository](https://github.com/mathiasbynens/dotfiles)
 * @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
