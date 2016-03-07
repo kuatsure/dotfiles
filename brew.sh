@@ -73,37 +73,5 @@ brew install tree
 brew install webkit2png
 brew install zopfli
 
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
-
-brew cask install alfred
-brew cask install appcleaner
-brew cask install archiver
-brew cask install atom
-brew cask install bartender
-brew cask install bettertouchtool
-brew cask install colloquy
-brew cask install daisydisk
-brew cask install dash
-brew cask install dropbox
-brew cask install evernote
-brew cask install firefox
-brew cask install fitbitconnect
-brew cask install forklift
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install iterm2
-brew cask install macpawgemini
-brew cask install moom
-brew cask install mou
-brew cask install onepassword
-brew cask install opera
-brew cask install opera-developer
-brew cask install opera-next
-brew cask install parallels
-brew cask install rdio
-brew cask install slack
-brew cask install vlc
-
 # Remove outdated versions from the cellar.
 brew cleanup
