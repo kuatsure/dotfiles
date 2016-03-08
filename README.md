@@ -62,6 +62,16 @@ When setting up a new Mac, you may want to set some sensible global Npm packages
 ./.npmGlobal
 ```
 
+### Sensible Atom Packages
+
+When setting up a new Mac, you may want to set some sensible [Atom](https://atom.io/) packages:
+
+```bash
+./.apmPackages
+```
+
+_Note:_ Keep in mind that if you use the [beta channel](https://atom.io/beta) of Atom, you'll have to update `apm` to `apm-beta`. Also, your `atom` cli will be `atom-beta`.
+
 ### Install Homebrew formulae
 
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
