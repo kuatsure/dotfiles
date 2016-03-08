@@ -1,4 +1,6 @@
 apm install advanced-open-file
+apm install atom-material-syntax
+apm install atom-material-ui
 apm install circle-ci
 apm install docblockr
 apm install editorconfig
