@@ -1,0 +1,5 @@
+'.atom-pane .atom-text-editor:not(.mini)':
+  'tab': 'snippets:expand'
+
+'.platform-darwin atom-workspace':
+  'alt-cmd-n': 'advanced-open-file:toggle'
