@@ -57,6 +57,8 @@ brew install woff2
 # Install other useful binaries.
 brew install ack
 #brew install exiv2
+brew tap codeclimate/formulae
+brew install codeclimate
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
