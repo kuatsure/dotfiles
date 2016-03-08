@@ -1,0 +1,88 @@
+"*":
+  "advanced-new-file":
+    createFileInstantly: true
+    suggestCurrentFilePath: true
+  "atom-material-ui":
+    compactTreeView: true
+    depth: true
+    fonts: {}
+    panelContrast: true
+    panels: {}
+    rippleAccentColor: true
+    slimScrollbar: true
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+      slimScrollbar: true
+  "circle-ci":
+    apiToken: "CIRCLE-CI-API-TOKEN"
+  core:
+    closeEmptyWindows: false
+    disabledPackages: [
+      "svg-preview"
+      "relative-numbers"
+    ]
+    excludeVcsIgnoredPaths: false
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  docblockr: {}
+  editor:
+    fontFamily: "SourceCodePro-Light"
+    invisibles: {}
+    preferredLineLength: 1000
+    showIndentGuide: true
+    showInvisibles: true
+    useShadowDOM: true
+  emmet: {}
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  "fuzzy-finder":
+    ignoredNames: [
+      "migrate"
+    ]
+  "isotope-ui":
+    backgroundColor: "false"
+    fontFamily: "Source Sans Pro"
+    lowContrastTooltip: true
+    spaciousMode: true
+  linter:
+    showErrorPanel: false
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
+  pigments:
+    groupPaletteColors: "by file"
+    markerType: "dot"
+    mergeColorDuplicates: true
+    sortPaletteColors: "by color"
+    traverseIntoSymlinkDirectories: true
+  "travis-ci-status": {}
+  "tree-view":
+    hideIgnoredNames: true
+  "vim-mode": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+".ansi.text":
+  editor:
+    preferredLineLength: 1000
+".hack.html.text":
+  editor:
+    preferredLineLength: 1000
+".hackfragment.source":
+  editor:
+    preferredLineLength: 1000
+".haml.text":
+  editor:
+    preferredLineLength: 1000
+".hamlc.text":
+  editor:
+    preferredLineLength: 1000
+".ini.source":
+  editor:
+    preferredLineLength: 1000
