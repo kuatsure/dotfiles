@@ -3,6 +3,8 @@ apm install atom-material-syntax
 apm install atom-material-ui
 apm install circle-ci
 apm install docblockr
+apm install dracula-ui
+apm install dracula-theme
 apm install editorconfig
 apm install emmet
 apm install file-icons
