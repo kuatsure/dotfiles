@@ -1,3 +1,7 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
 color Dracula
 
 " Make Vim more useful
@@ -39,8 +43,6 @@ set exrc
 set secure
 " Enable line numbers
 set number
-" Enable syntax highlighting
-syntax on
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
@@ -108,6 +110,7 @@ if has("autocmd")
 endif
 
 let g:EditorConfig_core_mode = 'external_command'
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 
 "Enable code folding
 set foldenable
@@ -125,6 +128,9 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=NONE
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=236
 
-call pathogen#infect()
-syntax enable
-filetype plugin indent on
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline_theme='dracula'
