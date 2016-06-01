@@ -3,3 +3,6 @@
 
 '.platform-darwin atom-workspace':
   'alt-cmd-n': 'advanced-open-file:toggle'
+
+'atom-text-editor[data-grammar="text html htmlbars"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
