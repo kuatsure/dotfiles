@@ -1,0 +1,62 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.source.js':
+  'Ember\'s setupController off route':
+    'prefix': 'e_suc'
+    'body': 'setupController( controller, model ) {\n\tthis._super( controller, model );\n\n\t$1\n}'
+
+  'Ember\'s afterModel off route':
+    'prefix': 'e_am'
+    'body': 'afterModel( model, transition ) {\n\t$1\n}'
+
+  'Ember\'s redirect off route':
+    'prefix': 'e_rd'
+    'body': 'redirect( model, transition ) {\n\t$1\n}'
+
+  'Ember\'s didInsertElement off component':
+    'prefix': 'e_die'
+    'body': 'didInsertElement() {\n\tthis._super( ...arguments );\n\n\t$1\n}'
+
+  'console.debug':
+    'prefix': 'debug'
+    'body': 'console.debug($1);'
+
+  'console.error':
+    'prefix': 'error'
+    'body': 'console.error($1);'
+
+  'console.info':
+    'prefix': 'info'
+    'body': 'console.info($1);'
+
+  'hi':
+    'prefix': 'hi'
+    'body': 'console.log(\'hi\');'
+
+  'there':
+    'prefix': 'there'
+    'body': 'console.log(\'there\');'
+
+  'bye':
+    'prefix': 'bye'
+    'body': 'console.log(\'bye\');'
