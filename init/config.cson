@@ -18,6 +18,8 @@
     disabledPackages: [
       "svg-preview"
       "relative-numbers"
+      "vim-surround"
+      "vim-mode"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -46,12 +48,16 @@
     fontFamily: "Source Sans Pro"
     lowContrastTooltip: true
     spaciousMode: true
-  linter:
-    showErrorPanel: false
+  linter: {}
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "linter-sass-lint":
+    noConfigDisable: true
   "linter-scss-lint":
+    disableWhenNoConfigFileInPath: true
     executablePath: "path_to_linter"
+  "linter-stylelint":
+    disableWhenNoConfig: true
   pigments:
     groupPaletteColors: "by file"
     markerType: "dot"
@@ -63,7 +69,8 @@
     hideIgnoredNames: true
     showOnRightSide: true
     squashDirectoryNames: true
-  "vim-mode": {}
+  "vim-mode":
+    useClipboardAsDefaultRegister: false
   welcome:
     showOnStartup: false
   whitespace:
