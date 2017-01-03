@@ -106,6 +106,8 @@
   # Run gitignore.io
   ig = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
 
+  # do a fresh `up` and chase it with a `dm`
+  cl = !"git up && git dm"
 [apply]
 
   # Detect whitespace errors when applying a patch
