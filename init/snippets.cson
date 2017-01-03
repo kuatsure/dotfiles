@@ -20,6 +20,108 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
+'.text.html.mustache':
+  'Log Helper':
+    'prefix': 'log'
+    'body': """
+      {{log ${1:value}}}
+    """
+
+  'Debug Helper':
+    'prefix': 'debugger'
+    'body': """
+      {{debugger}}
+    """
+
+  'Escape':
+    'prefix': 'escape'
+    'body': """
+      {{{${1:value}}}}
+    """
+
+  'Each':
+    'prefix': 'each'
+    'body': """
+      {{#each ${1:${2:item} ${3:in ${4:value}}}}}
+        ${5}
+      {{/each}}
+    """
+
+  'Each As':
+    'prefix': 'eachas'
+    'body': """
+      {{#each ${2:item} as |${4:value}|}}
+        ${5}
+
+      {{else}}
+        ${6}
+      {{/each}}
+    """
+
+  'Each In':
+    'prefix': 'eachin'
+    'body': """
+      {{#each-in ${2:item} as |${4:key} ${5:value}|}}
+        ${6}
+      {{/each-in}}
+    """
+
+  'Get':
+    'prefix': 'get'
+    'body': """
+      {{get ${1:${2:item} ${3:value}}}}
+    """
+
+  'If':
+    'prefix': 'if'
+    'body': """
+      {{#if ${1:bool}}}
+        $2
+      {{/if}}
+    """
+
+  'Else':
+    'prefix': 'else'
+    'body': '{{else}}${1}'
+
+  'If/Else Block':
+    'prefix': 'ifelse'
+    'body': """
+      {{#if ${1:bool}}}
+        ${2}
+
+      {{else}}
+        ${3}
+      {{/if}}
+    """
+
+  'Unless':
+    'prefix': 'unless'
+    'body': """
+      {{#unless ${1: item}}}
+        ${2}
+      {{/unless}}
+    """
+
+  'Unless/Else':
+    'prefix': 'unelse'
+    'body': """
+      {{#unless ${1:bool}}}
+        ${2}
+
+      {{else}}
+        ${3}
+      {{/unless}}
+    """
+
+  'With Block':
+    'prefix': 'with'
+    'body': """
+      {{#with ${1:item} ${2:as ${3:|${4:value}|}}}}
+        ${5}
+      {{/with}}
+    """
+
 '.source.js':
   'Ember\'s setupController off route':
     'prefix': 'e_suc'
