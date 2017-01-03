@@ -13,7 +13,7 @@
     ui:
       panelContrast: true
   "circle-ci":
-    apiToken: "CIRCLE-CI-API-TOKEN"
+    apiToken: "CIRCLE_CI_API_TOKEN"
   core:
     disabledPackages: [
       "svg-preview"
