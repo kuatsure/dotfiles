@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 apm install advanced-open-file
 apm install atom-material-syntax
 apm install atom-material-ui
