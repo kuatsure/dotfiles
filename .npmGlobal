@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 npm install -g david
+npm install -g ember-cli
 npm install -g generator-assemble
 npm install -g generator-chromeapp
 npm install -g generator-generator
@@ -14,6 +15,7 @@ npm install -g generator-mocha
 npm install -g generator-mote
 npm install -g generator-requirejs
 npm install -g generator-skeletor
+npm install -g hpm-cli
 npm install -g keybase-installer
 npm install -g learnyounode
 npm install -g yo
