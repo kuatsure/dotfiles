@@ -80,5 +80,7 @@ brew install zopfli
 
 brew tap homebrew/services
 
+brew install yarn
+
 # Remove outdated versions from the cellar.
 brew cleanup
