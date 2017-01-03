@@ -23,19 +23,35 @@
 '.source.js':
   'Ember\'s setupController off route':
     'prefix': 'e_suc'
-    'body': 'setupController( controller, model ) {\n\tthis._super( controller, model );\n\n\t$1\n}'
+    'body': 'setupController( controller, model ) {\n\tthis._super( controller, model );\n\n\t$1\n},'
 
-  'Ember\'s afterModel off route':
+  'Ember\'s beforeModel hook off route':
+    'prefix': 'e_bm'
+    'body': 'beforeModel( transition ) {\n\t$1\n},'
+
+  'Ember\'s model hook off route':
+    'prefix': 'e_m'
+    'body': 'model( params ) {\n\t$1\n},'
+
+  'Ember\'s afterModel hook off route':
     'prefix': 'e_am'
-    'body': 'afterModel( model, transition ) {\n\t$1\n}'
+    'body': 'afterModel( model, transition ) {\n\t$1\n},'
 
   'Ember\'s redirect off route':
     'prefix': 'e_rd'
-    'body': 'redirect( model, transition ) {\n\t$1\n}'
+    'body': 'redirect( model, transition ) {\n\t$1\n},'
 
   'Ember\'s didInsertElement off component':
     'prefix': 'e_die'
-    'body': 'didInsertElement() {\n\tthis._super( ...arguments );\n\n\t$1\n}'
+    'body': 'didInsertElement() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
+
+  'Ember\'s didReceiveAttrs off component':
+    'prefix': 'e_dra'
+    'body': 'didReceiveAttrs() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
+
+  'Ember\'s normalizeResponse off serializer':
+    'prefix': 'e_nr'
+    'body': 'normalizeResponse( store, primaryModelClass, payload, id, requestType ) {\n\t$1\n\n\treturn this._super(store, primaryModelClass, payload, id, requestType);\n},'
 
   'console.debug':
     'prefix': 'debug'
