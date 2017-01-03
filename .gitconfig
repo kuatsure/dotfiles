@@ -157,8 +157,10 @@
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
   tool = Kaleidoscope
+  compactionHeuristic = true
 [difftool]
   prompt = false
+  compactionHeuristic = true
 
 [help]
 
