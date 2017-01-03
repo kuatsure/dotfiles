@@ -22,6 +22,7 @@
       "vim-mode"
     ]
     openEmptyEditorOnStart: false
+    telemetryConsent: "no"
     themes: [
       "dracula-ui"
       "dracula-theme"
@@ -29,6 +30,7 @@
   docblockr: {}
   editor:
     fontFamily: "SourceCodePro-Light"
+    fontSize: 15
     invisibles: {}
     preferredLineLength: 1000
     showIndentGuide: true
@@ -67,6 +69,7 @@
   "travis-ci-status": {}
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
     showOnRightSide: true
     squashDirectoryNames: true
   "vim-mode":
