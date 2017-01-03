@@ -58,8 +58,7 @@
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
     executablePath: "path_to_linter"
-  "linter-stylelint":
-    disableWhenNoConfig: true
+  "linter-stylelint": {}
   pigments:
     groupPaletteColors: "by file"
     markerType: "dot"
