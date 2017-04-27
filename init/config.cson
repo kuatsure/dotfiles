@@ -15,6 +15,7 @@
   "circle-ci":
     apiToken: "CIRCLE_CI_API_TOKEN"
   core:
+    closeDeletedFileTabs: true
     disabledPackages: [
       "svg-preview"
       "relative-numbers"
@@ -27,10 +28,10 @@
       "dracula-ui"
       "dracula-theme"
     ]
-  docblockr: {}
+  docblockr:
+    deep_indent: true
   editor:
     fontFamily: "SourceCodePro-Light"
-    fontSize: 15
     invisibles: {}
     preferredLineLength: 1000
     showIndentGuide: true
@@ -51,6 +52,9 @@
     lowContrastTooltip: true
     spaciousMode: true
   linter: {}
+  "linter-eslint":
+    disableFSCache: true
+    fixOnSave: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-sass-lint":
@@ -59,20 +63,33 @@
     disableWhenNoConfigFileInPath: true
     executablePath: "path_to_linter"
   "linter-stylelint": {}
+  "linter-ui-default":
+    showPanel: true
+    showTooltip: false
+    useBusySignal: false
   pigments:
     groupPaletteColors: "by file"
     markerType: "dot"
     mergeColorDuplicates: true
     sortPaletteColors: "by color"
     traverseIntoSymlinkDirectories: true
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
   "travis-ci-status": {}
   "tree-view":
+    focusOnReveal: false
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
     showOnRightSide: true
     squashDirectoryNames: true
   "vim-mode":
     useClipboardAsDefaultRegister: false
+  "vim-mode-plus":
+    automaticallyEscapeInsertModeOnActivePaneItemChange: true
+    highlightSearch: true
   welcome:
     showOnStartup: false
   whitespace:
