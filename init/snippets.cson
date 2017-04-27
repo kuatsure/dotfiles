@@ -171,6 +171,14 @@
     'prefix': 'hi'
     'body': 'console.log(\'hi\');'
 
+  'yolo':
+    'prefix': 'yolo'
+    'body': 'console.log(\'yolo\');'
+
+  'death':
+    'prefix': 'death'
+    'body': 'console.log(\'death\');'
+
   'there':
     'prefix': 'there'
     'body': 'console.log(\'there\');'
