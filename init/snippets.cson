@@ -127,6 +127,14 @@
     'prefix': 'e_i'
     'body': 'init() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
 
+  'Ember\'s computed off anything':
+    'prefix': 'e_cp'
+    'body': 'computed( \'$1\', { function() {\n\t$2\n\n\treturn $3\n}),'
+
+  'Ember\'s computed ( get / set ) off anything':
+    'prefix': 'e_cpgs'
+    'body': 'computed( \'$1\', {\n\tget( key ) {\n\t\treturn $2;\n\t},\n\tset( key, value ) {\n\t\t$3\n\n\t\treturn value;\n\t}\n}),'
+
   'Ember\'s setupController off route':
     'prefix': 'e_suc'
     'body': 'setupController( controller, model ) {\n\tthis._super( controller, model );\n\n\t$1\n},'
