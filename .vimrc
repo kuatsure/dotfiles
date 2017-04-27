@@ -25,6 +25,7 @@ Plug 'mustache/vim-mustache-handlebars'
 " Plug 'tpope/vim-repeat'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
 Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
 
 call plug#end()
