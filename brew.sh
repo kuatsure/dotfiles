@@ -86,6 +86,7 @@ brew install zopfli
 brew tap homebrew/services
 
 brew install yarn
+brew install tmux
 
 # Remove outdated versions from the cellar.
 brew cleanup
