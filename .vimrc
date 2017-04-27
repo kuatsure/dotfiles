@@ -1,8 +1,39 @@
-execute pathogen#infect()
-syntax on
+" plug.vim -> https://github.com/junegunn/vim-plug
+call plug#begin()
+
+Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'bubujka/emmet-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kchmck/vim-coffee-script'
+Plug 'ap/vim-css-color'
+" Plug 'dag/vim-fish'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'chriseppstein/vim-haml'
+" Plug 'valloric/vim-indent-guides'
+" Plug 'statianzo/vim-jade'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-markdown'
+Plug 'mustache/vim-mustache-handlebars'
+" Plug 'casecommons/vim-rails'
+" Plug 'kana/vim-repeat'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-surround'
+Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
+
+call plug#end()
+
 filetype plugin indent on
 
-color Dracula
+if filereadable( expand("$HOME/.vim/plugged/dracula") )
+  colorscheme dracula
+endif
 
 " Make Vim more useful
 set nocompatible

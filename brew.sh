@@ -47,11 +47,15 @@ brew install ringojs
 brew install narwhal
 
 # Install more recent versions of some OS X tools.
-brew install vim --with-override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 brew install homebrew/php/php55 --with-gmp
+
+# Vim it up
+brew install vim --with-override-system-vi
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install font tools.
 brew tap bramstein/webfonttools
