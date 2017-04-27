@@ -31,9 +31,7 @@ call plug#end()
 
 filetype plugin indent on
 
-if filereadable( expand("$HOME/.vim/plugged/dracula") )
-  colorscheme dracula
-endif
+colorscheme dracula
 
 " Make Vim more useful
 set nocompatible
