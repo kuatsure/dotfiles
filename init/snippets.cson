@@ -123,6 +123,10 @@
     """
 
 '.source.js':
+  'Ember\'s init hook off anything':
+    'prefix': 'e_i'
+    'body': 'init() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
+
   'Ember\'s setupController off route':
     'prefix': 'e_suc'
     'body': 'setupController( controller, model ) {\n\tthis._super( controller, model );\n\n\t$1\n},'
@@ -143,6 +147,18 @@
     'prefix': 'e_rd'
     'body': 'redirect( model, transition ) {\n\t$1\n},'
 
+  'Ember\'s resetController off route':
+    'prefix': 'e_rc'
+    'body': 'resetController( controller, isExiting, transition ) {\n\t$1\n},'
+
+  'Ember\'s willTrasition off route':
+    'prefix': 'e_wt'
+    'body': 'willTrasition( transition ) {\n\t$1\n\n\treturn true;\n},'
+
+  'Ember\'s didTransition off route':
+    'prefix': 'e_dt'
+    'body': 'didTransition() {\n\t$1\n\n\treturn true;\n},'
+
   'Ember\'s didInsertElement off component':
     'prefix': 'e_die'
     'body': 'didInsertElement() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
@@ -150,6 +166,10 @@
   'Ember\'s didReceiveAttrs off component':
     'prefix': 'e_dra'
     'body': 'didReceiveAttrs() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
+
+  'Ember\'s willDestroyElement off component':
+    'prefix': 'e_wde'
+    'body': 'willDestroyElement() {\n\tthis._super( ...arguments );\n\n\t$1\n},'
 
   'Ember\'s normalizeResponse off serializer':
     'prefix': 'e_nr'
