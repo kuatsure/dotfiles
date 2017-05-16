@@ -169,3 +169,5 @@ let g:airline_theme='dracula'
 let g:javascript_plugin_jsdoc = 1
 
 let g:used_javascript_libs = 'jquery, underscore, flux, react, handlebars'
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
