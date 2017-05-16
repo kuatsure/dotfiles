@@ -26,6 +26,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
 
 call plug#end()
@@ -166,3 +167,5 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_theme='dracula'
 
 let g:javascript_plugin_jsdoc = 1
+
+let g:used_javascript_libs = 'jquery, underscore, flux, react, handlebars'
