@@ -1,10 +1,10 @@
 " plug.vim -> https://github.com/junegunn/vim-plug
 call plug#begin()
 
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'bubujka/emmet-vim'
+" Plug 'bubujka/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -15,18 +15,20 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriseppstein/vim-haml'
-" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'digitaltoad/vim-jade'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-markdown'
 Plug 'mustache/vim-mustache-handlebars'
 " Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
+Plug 'dahu/vim-fanfingtastic'
+Plug 'w0rp/ale'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'luochen1990/rainbow'
 Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
 
 call plug#end()
