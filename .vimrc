@@ -144,7 +144,32 @@ set mousehide
 
 " Smash escape via http://vimbits.com/bits/180
 inoremap jk <Esc>
-inoremap kj <Esc>
+
+" Moving Lines
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gvV
+
+nnoremap -          :call Explore()<CR>
+
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gl :sp<CR>:Glog<CR><CR>
+nnoremap <Leader>gs :Gstatus<CR>
+
+" Fast editing and reloading of vimrc configs
+map <leader>r :e! ~/.vimrc<cr>
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Search for current visual selection
+vnoremap // y/<C-R>"<CR>
+
+nnoremap <Leader>s  :call OpenNextFile(1)<CR>
+nnoremap <Leader>S  :call OpenNextFile(-1)<CR>
 
 let g:indent_guides_start_level = 1
 let g:indent_guides_enable_on_vim_startup = 1
@@ -164,3 +189,65 @@ let g:javascript_plugin_jsdoc = 1
 let g:used_javascript_libs = 'jquery, underscore, flux, react, handlebars'
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+let g:ale_statusline_format      = ['✗ %d', '! %d', '✓']
+
+let g:rainbow_active             = 1
+let g:rainbow_conf               = {
+\  'ctermfgs': [ 'magenta', 'blue', 'yellow', 'red' ],
+\  'separately': {
+\    'html.handlebars': {
+\      'parentheses': [ 'start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold' ],
+\    }
+\  }
+\}
+
+let g:netrw_banner               = 0
+
+function! Explore()
+  let last_file = expand('%:t')
+  exe 'Explore'
+  call search(last_file, 'wc')
+endfunction
+
+function! OpenNextFile(direction)
+  let current_dir = expand('%:p:h')
+  let current_file = expand('%:p')
+  let current_dir_files = globpath(current_dir, '*', 0, 1)
+  let current_file_index = index(current_dir_files, current_file)
+  let next_file_index = current_file_index + a:direction
+
+  while next_file_index != current_file_index
+    if next_file_index == len(current_dir_files)
+      let next_file_index = 0
+    endif
+
+    if filereadable(current_dir_files[next_file_index])
+      exe 'edit ' . current_dir_files[next_file_index]
+      break
+    endif
+
+    let next_file_index += a:direction
+  endwhile
+endfunction
