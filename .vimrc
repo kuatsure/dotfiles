@@ -118,16 +118,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  :%s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-autocmd BufWritePre * :%s/\s\+$//e
+" Splitting right and down feels more natural
+set splitbelow
+set splitright
 
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
