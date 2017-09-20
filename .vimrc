@@ -147,6 +147,15 @@ set mousehide
 
 " Smash escape via http://vimbits.com/bits/180
 inoremap jk <Esc>
+inoremap Jk <Esc>
+vnoremap jk <Esc>
+vnoremap Jk <Esc>
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " Moving Lines
 nnoremap ∆ :m .+1<CR>==
@@ -164,6 +173,9 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gl :sp<CR>:Glog<CR><CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
+nnoremap <Leader>== =ip
+nnoremap <Leader>/          :nohlsearch<CR>
+
 " Fast editing and reloading of vimrc configs
 map <leader>r :e! ~/.vimrc<cr>
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -171,8 +183,17 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 " Search for current visual selection
 vnoremap // y/<C-R>"<CR>
 
+nnoremap <Leader>c  :tabnew<CR>
+nnoremap <Leader>C  :tabclose<CR>
+
+nnoremap <Leader>v  :spl<CR>
+nnoremap <Leader>V  :vsp<CR>
+
 nnoremap <Leader>s  :call OpenNextFile(1)<CR>
 nnoremap <Leader>S  :call OpenNextFile(-1)<CR>
+
+nnoremap <Leader>a  :vsp<CR>:call OpenNextFile(1)<CR>
+nnoremap <Leader>A  :spl<CR>:call OpenNextFile(-1)<CR>
 
 let g:indentLine_leadingSpaceEnabled=1
 
