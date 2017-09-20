@@ -232,6 +232,13 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 let g:ale_statusline_format      = ['✗ %d', '! %d', '✓']
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+
+" Set this setting in vimrc if you want to fix files automatically on save.
+" This is off by default.
+let g:ale_fix_on_save = 1
 
 let g:rainbow_active             = 1
 let g:rainbow_conf               = {
