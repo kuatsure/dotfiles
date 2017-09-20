@@ -31,6 +31,8 @@ Plug 'w0rp/ale'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
 Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
