@@ -151,6 +151,12 @@ inoremap Jk <Esc>
 vnoremap jk <Esc>
 vnoremap Jk <Esc>
 
+inoremap jkk <Esc><CR>:w<CR>
+nnoremap jkk <Esc><CR>:w<CR>
+
+inoremap kjj <Esc><CR>:x<CR>
+nnoremap kjj <Esc><CR>:x<CR>
+
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-j> :wincmd j<CR>
