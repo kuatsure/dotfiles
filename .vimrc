@@ -191,15 +191,16 @@ vnoremap // y/<C-R>"<CR>
 
 nnoremap <Leader>c  :tabnew<CR>
 nnoremap <Leader>C  :tabclose<CR>
+nnoremap <silent> <Leader>X  :tabnew<CR>:tabonly<CR>
 
-nnoremap <Leader>v  :spl<CR>
-nnoremap <Leader>V  :vsp<CR>
+nnoremap <Leader>V  :spl<CR>
+nnoremap <Leader>v  :vsp<CR>
 
 nnoremap <Leader>s  :call OpenNextFile(1)<CR>
 nnoremap <Leader>S  :call OpenNextFile(-1)<CR>
 
 nnoremap <Leader>a  :vsp<CR>:call OpenNextFile(1)<CR>
-nnoremap <Leader>A  :spl<CR>:call OpenNextFile(-1)<CR>
+nnoremap <Leader>A  :spl<CR>:call OpenNextFile(1)<CR>
 
 let g:indentLine_leadingSpaceEnabled=1
 
