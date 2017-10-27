@@ -180,7 +180,7 @@ nnoremap <Leader>gl :sp<CR>:Glog<CR><CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
 nnoremap <Leader>== =ip
-nnoremap <Leader>/          :nohlsearch<CR>
+nnoremap <silent> <Leader>/          :nohlsearch<CR>
 
 " Fast editing and reloading of vimrc configs
 map <leader>r :e! ~/.vimrc<cr>
