@@ -242,9 +242,9 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-h> <Plug>(ale_toggle)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-n> <Plug>(ale_toggle)
+nmap <silent> <C-S-m> <Plug>(ale_previous_wrap)
+nmap <silent> <C-m> <Plug>(ale_next_wrap)
 let g:ale_statusline_format      = ['✗ %d', '! %d', '✓']
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
