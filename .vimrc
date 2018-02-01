@@ -161,6 +161,14 @@ nnoremap jkk <Esc><CR>:w<CR>
 inoremap kjj <Esc><CR>:x<CR>
 nnoremap kjj <Esc><CR>:x<CR>
 
+" this stuff needs to go into a black hole
+nnoremap <silent> dd "_dd
+nnoremap <silent> cc "_cc
+nnoremap <silent> D "_D
+nnoremap <silent> C "_C
+nnoremap <silent> s "_s
+nnoremap <silent> S "_S
+
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-j> :wincmd j<CR>
