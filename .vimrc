@@ -101,8 +101,8 @@ set nostartofline
 set ruler
 " Don’t show the intro message when starting Vim
 set shortmess=atI
-" Show the current mode
-set showmode
+" Don't show the current mode
+set noshowmode
 " Show the filename in the window titlebar
 set title
 " Show the (partial) command as it’s being typed
