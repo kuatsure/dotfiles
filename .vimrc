@@ -149,17 +149,11 @@ set foldenable
 "Hide mouse when typing
 set mousehide
 
-" Smash escape via http://vimbits.com/bits/180
-inoremap jk <Esc>
-inoremap Jk <Esc>
-vnoremap jk <Esc>
-vnoremap Jk <Esc>
+inoremap <leader><leader> <Esc>:w<CR>
+nnoremap <leader><leader> <Esc>:w<CR>
 
-inoremap jkk <Esc><CR>:w<CR>
-nnoremap jkk <Esc><CR>:w<CR>
-
-inoremap kjj <Esc><CR>:x<CR>
-nnoremap kjj <Esc><CR>:x<CR>
+inoremap <leader>.. <Esc>:x<CR>
+nnoremap <leader>.. <Esc>:x<CR>
 
 " this stuff needs to go into a black hole
 nnoremap <silent> dd "_dd
