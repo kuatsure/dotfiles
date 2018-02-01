@@ -122,6 +122,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" reload files when changed on disk, i.e. via `git checkout`
+set autoread
+
 " Splitting right and down feels more natural
 set splitbelow
 set splitright
