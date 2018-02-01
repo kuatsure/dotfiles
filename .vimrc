@@ -33,6 +33,7 @@ Plug 'luochen1990/rainbow'
 Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'wellle/targets.vim'
 
 call plug#end()
 
