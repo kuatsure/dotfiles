@@ -151,7 +151,9 @@ nnoremap kjj <Esc>:x<CR>
 
 " this stuff needs to go into a black hole
 nnoremap <silent> dd "_dd
+nnoremap <silent> d "_d
 nnoremap <silent> cc "_cc
+nnoremap <silent> c "_c
 nnoremap <silent> D "_D
 nnoremap <silent> C "_C
 nnoremap <silent> s "_s
