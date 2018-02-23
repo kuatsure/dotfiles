@@ -108,13 +108,6 @@ set noshowmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-" Enable line numbers
-" set number
-" Use relative line numbers
-" if exists("&relativenumber")
-"   set relativenumber
-"   au BufReadPost * set relativenumber
-" endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
