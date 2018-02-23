@@ -143,11 +143,11 @@ set foldenable
 "Hide mouse when typing
 set mousehide
 
-inoremap <leader><leader> <Esc>:w<CR>
-nnoremap <leader><leader> <Esc>:w<CR>
+inoremap jkk <Esc>:w<CR>
+nnoremap jkk <Esc>:w<CR>
 
-inoremap <leader>.. <Esc>:x<CR>
-nnoremap <leader>.. <Esc>:x<CR>
+inoremap kjj <Esc>:x<CR>
+nnoremap kjj <Esc>:x<CR>
 
 " this stuff needs to go into a black hole
 nnoremap <silent> dd "_dd
