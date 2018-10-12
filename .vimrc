@@ -191,7 +191,7 @@ set foldenable
 set mousehide
 
 " slam escape / save
-nnoremap jk <Esc>
+inoremap jk <Esc>
 
 inoremap jkk <Esc>:w<CR>
 nnoremap jkk <Esc>:w<CR>
