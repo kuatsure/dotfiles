@@ -283,10 +283,9 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-nmap <silent> <C-n> <Plug>(ale_toggle)
-nmap <silent> <C-S-m> <Plug>(ale_previous_wrap)
-nmap <silent> <C-m> <Plug>(ale_next_wrap)
-let g:ale_statusline_format      = ['✗ %d', '! %d', '✓']
+" nmap <silent> <C-n> <Plug>(ale_toggle)
+nmap <silent> <C-S-n> <Plug>(ale_previous_wrap)
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
@@ -294,10 +293,6 @@ let g:ale_linters = {
 \   'html': []
 \}
 let g:ale_fix_on_save = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:rainbow_active             = 1
 let g:rainbow_conf               = {
