@@ -6,9 +6,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'bubujka/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'ap/vim-css-color'
 " Plug 'dag/vim-fish'
@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
 Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
@@ -41,6 +42,47 @@ call plug#end()
 filetype plugin indent on
 
 colorscheme dracula
+
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo', 'percent' ],
+      \              [ 'filetype' ],
+      \              [ 'linter_errors', 'linter_warnings' ], ],
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'git_branch' ],
+      \             [ 'relativepath', 'modified', 'readonly' ], ]
+      \ },
+      \ 'component_function': {
+      \   'git_branch': 'fugitive#head'
+      \ },
+      \ 'component_expand': {
+      \   'linter_warnings': 'LightlineLinterWarnings',
+      \   'linter_errors': 'LightlineLinterErrors',
+      \ },
+      \ 'component_type': {
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \ },
+      \ }
+
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d', all_errors)
+endfunction
+
+if !has('gui_running')
+    set t_Co=256
+  endif
 
 " Make Vim more useful
 set nocompatible
@@ -132,6 +174,7 @@ if has("autocmd")
   filetype on
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  autocmd User ALELint call lightline#update()
 endif
 
 let g:EditorConfig_core_mode = 'external_command'
@@ -208,13 +251,6 @@ nnoremap <Leader>a  :vsp<CR>:call OpenNextFile(1)<CR>
 nnoremap <Leader>A  :spl<CR>:call OpenNextFile(1)<CR>
 
 let g:indentLine_leadingSpaceEnabled=1
-
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_theme='dracula'
 
 let g:javascript_plugin_jsdoc = 1
 
