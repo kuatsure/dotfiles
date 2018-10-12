@@ -36,6 +36,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
+Plug 'misterbuckley/vim-definitive'
 
 call plug#end()
 
@@ -309,6 +310,8 @@ let g:rainbow_conf               = {
 \}
 
 let g:netrw_banner               = 0
+
+nnoremap <Leader>d :FindDefinition<CR>
 
 function! Explore()
   let last_file = expand('%:t')
