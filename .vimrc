@@ -32,7 +32,7 @@ Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
-Plug 'dracula/vim', { 'dir': '~/.vim/plugged/dracula', 'do': ':colorscheme Dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
@@ -40,6 +40,9 @@ Plug 'wellle/targets.vim'
 call plug#end()
 
 filetype plugin indent on
+
+let g:dracula_colorterm = 0
+let g:dracula_italic=0
 
 colorscheme dracula
 
