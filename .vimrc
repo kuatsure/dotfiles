@@ -288,16 +288,26 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
 " nmap <silent> <C-n> <Plug>(ale_toggle)
 nmap <silent> <C-S-n> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
+
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'scss': ['stylelint']
 \}
 let g:ale_linters = {
 \   'html': [],
 \   'ruby': [],
-\   'javascript': ['eslint', 'prettier']
+\   'javascript': ['eslint', 'prettier'],
+\   'jsx': ['stylelint', 'eslint']
 \}
 let g:ale_fix_on_save = 1
 
