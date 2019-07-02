@@ -1,32 +1,16 @@
-#!/usr/bin/env bash
-
-apm install advanced-open-file
-apm install atom-material-syntax
-apm install atom-material-ui
-apm install circle-ci
-apm install codeship-status
-apm install docblockr
-apm install dracula-ui
-apm install dracula-theme
-apm install editorconfig
-apm install emmet
-apm install file-icons
-apm install language-haml
-apm install language-javascript-jsx
-apm install language-viml
-apm install linter
-apm install linter-coffeelint
-apm install linter-eslint
-apm install linter-haml
-apm install linter-jshint
-apm install linter-sass-lint
-apm install linter-scss-lint
-apm install linter-stylelint
-apm install pigments
-apm install regex-railroad-diagram
-apm install Sublime-Style-Column-Selection
-apm install swackets
-apm install todo-show
-apm install travis-ci-status
-apm install vim-mode-plus
-apm install vim-surround
+atom-beautify@0.33.4
+better-jellybeans-syntax@1.1.0
+busy-signal@2.0.1
+dracula-syntax@2.0.7
+dracula-ui@0.6.0
+editorconfig@2.4.0
+file-icons@2.1.33
+intentions@1.1.5
+language-javascript-jsx@0.3.7
+linter@2.3.0
+linter-eslint@8.5.5
+linter-stylelint@4.4.8
+linter-ui-default@1.7.1
+pigments@0.40.2
+prettier-atom@0.56.6
+swackets@0.35.0
