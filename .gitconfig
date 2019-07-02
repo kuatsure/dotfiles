@@ -1,7 +1,9 @@
 [alias]
-
   # Init
   i = init
+
+  # edit this file
+  edit = config --global -e
 
   # Branch readout
   br = branch
@@ -11,9 +13,6 @@
 
   # Go back to previous branch
   bb = checkout -
-
-  # Branch switch to master
-  h = checkout master
 
   # Remote readout
   re = remote
@@ -73,6 +72,9 @@
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
 
+  # Redo the last commit message
+  redo = commit --amend
+
   # Credit an author on the latest commit
   credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
@@ -110,86 +112,72 @@
   # do a fresh `up` and chase it with a `dm`
   cl = !"git up && git dm"
 
-[apply]
+  # Regular fetch
+  f = fetch
+  h = !git fetch && git checkout develop
 
+  cp = cherry-pick
+
+  trash = branch -D
+
+[apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
 
 [core]
-
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
-
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
   # [default] trailing-space: looks for spaces at the end of a line
   # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
-
   # Make `git rebase` safer on OS X
   # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
   trustctime = false
 
 [color]
-
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
   ui = auto
-
 [color "branch"]
-
   current = yellow reverse
   local = yellow
   remote = green
-
 [color "diff"]
-
   meta = yellow bold
   frag = magenta bold # line info
   old = red # deletions
   new = green # additions
-
 [color "status"]
-
   added = yellow
   changed = green
   untracked = cyan
 
-[difftool "Kaleidoscope"]
-
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
 [diff]
-
   tool = Kaleidoscope
   compactionHeuristic = true
-
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
-
   prompt = false
   compactionHeuristic = true
 
 [help]
-
   # Automatically correct and execute mistyped commands
   autocorrect = 1
 
 [mergetool "Kaleidoscope"]
-
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustexitcode = true
-
 [mergetool]
   prompt = false
-
 [merge]
-
   tool = Kaleidoscope
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
 [push]
-
   # Use the Git 1.x.x default to avoid errors on machines with old Git
   # installations. To use `simple` instead, add this to your `~/.extra` file:
   # `git config --global push.default simple`. See http://git.io/mMah-w.
@@ -198,23 +186,15 @@
   followTags = true
 
 # URL shorthands
-
 [url "git@github.com:"]
-
   insteadOf = "gh:"
   pushInsteadOf = "github:"
   pushInsteadOf = "git://github.com/"
-
 [url "git://github.com/"]
-
   insteadOf = "github:"
-
 [url "git@gist.github.com:"]
-
   insteadOf = "gst:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
-
 [url "git://gist.github.com/"]
-
   insteadOf = "gist:"

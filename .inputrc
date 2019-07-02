@@ -31,10 +31,42 @@ set visible-stats on
 # Readline used by Bash 4.)
 set skip-completed-text on
 
-# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+# Use Alt/Meta + Delete to delete the preceding word
+"\e[3;3~": kill-word
+
+set editing-mode vi
+
+# Adds punctuation as word delimiters
+set bind-tty-special-chars off
+
+# Completion Options
+set show-all-if-unmodified on
+
+# Useful stuff for UTF-8
+set meta-flag on
 set input-meta on
 set output-meta on
 set convert-meta off
 
-# Use Alt/Meta + Delete to delete the preceding word
-"\e[3;3~": kill-word
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+
+    set keymap vi-insert
+    "\C-l": clear-screen
+    "\C-w": backward-kill-word
+    # auto-complete from the history
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+$endif
+
+$if Bash
+$endif
+
+$if Python
+$endif
+
+# IPython needs this to appear at the bottom of the
+# file for clear-screen to work
+set keymap vi

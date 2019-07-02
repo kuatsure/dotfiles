@@ -37,6 +37,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
 Plug 'misterbuckley/vim-definitive'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()
 
@@ -181,8 +182,9 @@ if has("autocmd")
   autocmd User ALELint call lightline#update()
 endif
 
-let g:EditorConfig_core_mode = 'external_command'
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+" let g:EditorConfig_core_mode = 'external_command'
+" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 "Enable code folding
 set foldenable
@@ -292,7 +294,7 @@ let g:ale_fixers = {
 let g:ale_linters = {
 \   'html': [],
 \   'ruby': [],
-\   'javascript': ['eslint']
+\   'javascript': ['eslint', 'prettier']
 \}
 let g:ale_fix_on_save = 1
 

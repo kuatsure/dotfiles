@@ -22,3 +22,6 @@ npm-debug.log
 
 # For the sass lover in all of us
 .sass-cache
+
+# weird sidekiq thing I don't understand
+sidekiq.pid

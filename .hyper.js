@@ -4,10 +4,10 @@ module.exports = {
     fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'SourceCodePro-Light, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'SourceCodePro-light, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(248,28,229,0.75)',
+    cursorColor: 'rgba(248,28,229,0.50)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'BLOCK',
@@ -22,13 +22,13 @@ module.exports = {
     borderColor: '#333',
 
     // custom css to embed in the main window
-    css: '',
+    css: 'margin: 15px;',
 
     // custom css to embed in the terminal window
     termCSS: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -54,7 +54,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: ''
+    shell: '/usr/local/bin/bash'
 
     // for advanced config flags please refer to https://hyperterm.org/#cfg
   },
@@ -66,11 +66,13 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hypercwd",
-    "hyperterm-tab-icons",
-    'hyper-dark-dracula',
-    "hyper-blink",
-    "hyperlinks"
+    'hypercwd',
+    'hyperterm-tab-icons',
+    'hyper-dracula',
+    'hyper-blink',
+    'hyperlinks',
+    'hyper-autohide-tabs',
+    'hyperterm-cursor',
   ],
 
   // in development, you can create a directory under
