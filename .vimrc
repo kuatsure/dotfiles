@@ -166,6 +166,9 @@ set softtabstop=2
 " reload files when changed on disk, i.e. via `git checkout`
 set autoread
 
+" writing the swap file faster
+set updatetime=100
+
 " Splitting right and down feels more natural
 set splitbelow
 set splitright
