@@ -25,3 +25,9 @@ npm-debug.log
 
 # weird sidekiq thing I don't understand
 sidekiq.pid
+
+# todo's thingy
+*.todo.md
+
+# vim / nvim
+Session.vim

@@ -6,6 +6,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'bubujka/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-unimpaired'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
@@ -13,6 +14,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'ap/vim-css-color'
 " Plug 'dag/vim-fish'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriseppstein/vim-haml'
 Plug 'Yggdroot/indentLine'
@@ -28,7 +30,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'dahu/vim-fanfingtastic'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
@@ -38,6 +40,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
 Plug 'misterbuckley/vim-definitive'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'bergercookie/vim-debugstring'
+Plug 'meain/vim-printer'
+Plug 'aserebryakov/vim-todo-lists'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'vim-test/vim-test'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'whatyouhide/vim-textobj-xmlattr'
+
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -47,29 +61,6 @@ let g:dracula_colorterm = 0
 let g:dracula_italic=0
 
 colorscheme dracula
-
-let g:lightline = {
-      \ 'colorscheme': 'Dracula',
-      \ 'active': {
-      \   'right': [ [ 'lineinfo', 'percent' ],
-      \              [ 'filetype' ],
-      \              [ 'linter_errors', 'linter_warnings' ], ],
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'git_branch' ],
-      \             [ 'relativepath', 'modified', 'readonly' ], ]
-      \ },
-      \ 'component_function': {
-      \   'git_branch': 'fugitive#head'
-      \ },
-      \ 'component_expand': {
-      \   'linter_warnings': 'LightlineLinterWarnings',
-      \   'linter_errors': 'LightlineLinterErrors',
-      \ },
-      \ 'component_type': {
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \ },
-      \ }
 
 function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
@@ -85,9 +76,36 @@ function! LightlineLinterErrors() abort
   return l:counts.total == 0 ? '' : printf('%d', all_errors)
 endfunction
 
+function! Explore()
+  let last_file = expand('%:t')
+  exe 'Explore'
+  call search(last_file, 'wc')
+endfunction
+
+function! OpenNextFile(direction)
+  let current_dir = expand('%:p:h')
+  let current_file = expand('%:p')
+  let current_dir_files = globpath(current_dir, '*', 0, 1)
+  let current_file_index = index(current_dir_files, current_file)
+  let next_file_index = current_file_index + a:direction
+
+  while next_file_index != current_file_index
+    if next_file_index == len(current_dir_files)
+      let next_file_index = 0
+    endif
+
+    if filereadable(current_dir_files[next_file_index])
+      exe 'edit ' . current_dir_files[next_file_index]
+      break
+    endif
+
+    let next_file_index += a:direction
+  endwhile
+endfunction
+
 if !has('gui_running')
-    set t_Co=256
-  endif
+  set t_Co=256
+endif
 
 " Make Vim more useful
 set nocompatible
@@ -113,9 +131,9 @@ set eol
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
-if exists("&undodir")
-  set undodir=~/.vim/undo
-endif
+" if exists("&undodir")
+"   set undodir=~/.vim/undo
+" endif
 
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
@@ -173,6 +191,29 @@ set updatetime=100
 set splitbelow
 set splitright
 
+let g:lightline = {
+  \ 'colorscheme': 'dracula',
+  \ 'active': {
+  \   'right': [ [ 'lineinfo', 'percent' ],
+  \              [ 'filetype' ],
+  \              [ 'linter_errors', 'linter_warnings' ], ],
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'git_branch' ],
+  \             [ 'relativepath', 'modified', 'readonly' ], ]
+  \ },
+  \ 'component_function': {
+  \   'git_branch': 'FugitiveHead'
+  \ },
+  \ 'component_expand': {
+  \   'linter_warnings': 'LightlineLinterWarnings',
+  \   'linter_errors': 'LightlineLinterErrors',
+  \ },
+  \ 'component_type': {
+  \     'linter_warnings': 'warning',
+  \     'linter_errors': 'error',
+  \ },
+  \ }
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
@@ -183,6 +224,9 @@ if has("autocmd")
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
   autocmd User ALELint call lightline#update()
+
+  autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+  autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 endif
 
 " let g:EditorConfig_core_mode = 'external_command'
@@ -214,23 +258,32 @@ nnoremap <silent> C "_C
 nnoremap <silent> s "_s
 nnoremap <silent> S "_S
 
+nnoremap <Leader>u :UndotreeToggle<CR>
+nnoremap <Leader>U :UndotreeFocus<CR>
+
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+
+
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-" Moving Lines
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gvV
-
 nnoremap -          :call Explore()<CR>
 
-nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gl :sp<CR>:Glog<CR><CR>
@@ -257,7 +310,7 @@ nnoremap <Leader>s  :call OpenNextFile(1)<CR>
 nnoremap <Leader>S  :call OpenNextFile(-1)<CR>
 
 nnoremap <Leader>a  :vsp<CR>:call OpenNextFile(1)<CR>
-nnoremap <Leader>A  :spl<CR>:call OpenNextFile(1)<CR>
+nnoremap <Leader>A  :spl<CR>:call OpenNextFile(-1)<CR>
 
 let g:indentLine_leadingSpaceEnabled=1
 
@@ -293,20 +346,25 @@ augroup FiletypeGroup
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 
-" nmap <silent> <C-n> <Plug>(ale_toggle)
 nmap <silent> <C-S-n> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
-let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript'], 'typescriptreact': 'typescript'}
 
 let g:ale_fixers = {
+\   'typescript': ['eslint', 'prettier'],
+\   'typescriptreact': ['eslint', 'prettier'],
 \   'javascript': ['eslint'],
+\   'python': ['black'],
 \   'scss': ['stylelint']
 \}
 let g:ale_linters = {
+\   'python': ['black'],
 \   'html': [],
 \   'ruby': [],
 \   'javascript': ['eslint', 'prettier'],
+\   'typescript': ['tsserver', 'eslint', 'prettier'],
+\   'typescriptreact': ['tsserver', 'eslint', 'prettier'],
 \   'jsx': ['stylelint', 'eslint']
 \}
 let g:ale_fix_on_save = 1
@@ -323,31 +381,10 @@ let g:rainbow_conf               = {
 
 let g:netrw_banner               = 0
 
+let g:VimTodoListsDatesEnabled   = 1
+let g:VimTodoListsDatesFormat    = "%a %b, %Y"
+
 nnoremap <Leader>d :FindDefinition<CR>
 
-function! Explore()
-  let last_file = expand('%:t')
-  exe 'Explore'
-  call search(last_file, 'wc')
-endfunction
+nnoremap gz :!zeal
 
-function! OpenNextFile(direction)
-  let current_dir = expand('%:p:h')
-  let current_file = expand('%:p')
-  let current_dir_files = globpath(current_dir, '*', 0, 1)
-  let current_file_index = index(current_dir_files, current_file)
-  let next_file_index = current_file_index + a:direction
-
-  while next_file_index != current_file_index
-    if next_file_index == len(current_dir_files)
-      let next_file_index = 0
-    endif
-
-    if filereadable(current_dir_files[next_file_index])
-      exe 'edit ' . current_dir_files[next_file_index]
-      break
-    endif
-
-    let next_file_index += a:direction
-  endwhile
-endfunction

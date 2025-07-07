@@ -91,7 +91,7 @@
   mt = mergetool
 
   # Show merged branches with master
-  sm = branch --merged
+  ; sm = branch --merged
 
   # Show unmerged branches with master
   um = branch --no-merged
@@ -114,11 +114,18 @@
 
   # Regular fetch
   f = fetch
-  h = !git fetch && git checkout develop
+	h = !git fetch && git checkout develop
 
   cp = cherry-pick
 
   trash = branch -D
+
+  pb = "!f() { git checkout -q develop && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse \"$branch^{tree}\") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done }; f"
+
+  sm = "!f() { \
+      base_branch=${1:-develop}; \
+      git cl && git pb \"$base_branch\"; \
+    }; f"
 
 [apply]
   # Detect whitespace errors when applying a patch
@@ -184,6 +191,8 @@
   default = simple
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
+
+  autoSetupRemote = true
 
 # URL shorthands
 [url "git@github.com:"]
