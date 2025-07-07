@@ -1,0 +1,8 @@
+lua 5.1
+nodejs 21.1.0
+elixir 1.10.3
+postgres 14.4
+python 3.11.1
+ruby 2.6.2
+pnpm 8.15.1
+golang 1.22.1
