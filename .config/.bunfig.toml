@@ -1,0 +1,10 @@
+# Global Bun supply-chain protections
+# Applies to ALL bun projects on this machine as a safety net.
+# Project-level bunfig.toml overrides these via shallow merge.
+#
+# Docs: https://bun.sh/docs/runtime/bunfig#global-vs-local
+# Context: https://safedep.io/mini-shai-hulud-strikes-again-314-npm-packages-compromised/
+[install]
+# Reject package versions published less than 5 days ago.
+# Gives the community time to flag malicious publishes before they land locally.
+minimumReleaseAge = 432000
