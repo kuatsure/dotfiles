@@ -62,7 +62,15 @@
   uu = reset --soft HEAD^
 
   # Switch to a branch, creating it if necessary
-  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  oldgo = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  go = "!f() { \
+    if [ -n \"$1\" ]; then \
+        git checkout -b \"$1\" 2>/dev/null || git checkout \"$1\"; \
+    else \
+        branch=$(git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) -- %(committerdate:relative)' | head -n 15 | fzf --ansi --no-sort --height 20 --layout=reverse --border --preview \"git log --oneline --graph --color=always {1} | head -n 20\" | awk '{print $1}'); \
+        [ -n \"$branch\" ] && git checkout \"$branch\"; \
+    fi; \
+  }; f"
 
   # Show verbose output about tags, branches or remotes
   tags = tag -l
