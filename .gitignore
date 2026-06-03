@@ -31,3 +31,6 @@ sidekiq.pid
 
 # vim / nvim
 Session.vim
+
+# redis
+*.rdb
