@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
+  "default_agent": "plan",
+  "autoupdate": false,
+  "mcp": {
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": true
+    },
+    "shortcut": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "-g",
+        "@shortcut/mcp@latest"
+      ],
+      "environment": {
+        "SHORTCUT_API_TOKEN": "{env:SHORTCUT_API_TOKEN}"
+      },
+      "enabled": true
+    }
+  },
+  "permission": {
+    "skill": {
+      "*": "allow",
+    },
+    "bash": {
+      "rm -rf *": "ask",
+      "git commit": "deny",
+      "git rebase": "deny",
+      "git push": "deny",
+      "git pull": "ask",
+      "git merge": "deny",
+      "git stash": "ask",
+      "git reset": "deny"
+    }
+  },
+}
