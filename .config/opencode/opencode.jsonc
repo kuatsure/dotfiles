@@ -4,6 +4,16 @@
   "default_agent": "plan",
   "autoupdate": false,
   "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics",
+        "--no-performance-crux"
+      ],
+      "enabled": true
+    },
     "playwright": {
       "type": "local",
       "command": [
