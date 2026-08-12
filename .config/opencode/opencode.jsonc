@@ -3,39 +3,6 @@
   "share": "disabled",
   "default_agent": "plan",
   "autoupdate": false,
-  "mcp": {
-    "chrome-devtools": {
-      "type": "local",
-      "command": [
-        "npx",
-        "chrome-devtools-mcp@latest",
-        "--no-usage-statistics",
-        "--no-performance-crux"
-      ],
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx",
-        "@playwright/mcp@latest"
-      ],
-      "enabled": true
-    },
-    "shortcut": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "-g",
-        "@shortcut/mcp@latest"
-      ],
-      "environment": {
-        "SHORTCUT_API_TOKEN": "{env:SHORTCUT_API_TOKEN}"
-      },
-      "enabled": true
-    }
-  },
   "permission": {
     "skill": {
       "*": "allow",
