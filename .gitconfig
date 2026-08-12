@@ -29,8 +29,8 @@
   # View the current working tree status
   st = status
 
-  # Show the diff between the latest commit and the current state using difftool
-  d = difftool
+  # Show the diff between the latest commit and the current state using diff
+  d = diff
 
   # Show the diff between the latest commit and the current state
   dd = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -150,6 +150,7 @@
   # Make `git rebase` safer on OS X
   # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
   trustctime = false
+  pager = delta
 
 [color]
   # Use colors in Git commands that are capable of colored output when
@@ -215,3 +216,18 @@
   pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
+
+[delta]
+  side-by-side = true
+  navigate = true
+
+  # Keep the diff focused on code rather than metadata
+  line-numbers = false
+  file-style = bold
+  hunk-header-decoration-style = none
+
+  # Don't let very long lines wreck side-by-side
+  wrap-max-lines = 2
+
+  # Side-by-side separator
+  zero-style = syntax
