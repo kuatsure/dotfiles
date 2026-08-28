@@ -29,7 +29,7 @@
   # View the current working tree status
   st = status
 
-  # Show the diff between the latest commit and the current state using diff
+  # Show the diff between the latest commit and the current state using difftool
   d = diff
 
   # Show the diff between the latest commit and the current state
@@ -88,6 +88,9 @@
 
   # Interactive rebase with the given number of latest commits
   reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+  # Fixes branch if previous pr merge was done in squashy ways
+  squashMerge = "!r() { git f; git rebase --onto origin/$1 \"$(git merge-base origin/$1 HEAD)\"; }; r"
 
   # Merge branches, keeping historical existence of the merged branch
   m = merge --no-ff
