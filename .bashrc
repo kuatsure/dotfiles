@@ -125,6 +125,8 @@ fi
 
 set -o vi
 
+source <(surecast completions bash)
+
 # . "$HOME/.asdf/asdf.sh"
 # . "$HOME/.asdf/completions/asdf.bash"
 
@@ -150,6 +152,8 @@ export PATH="$HOME/.opencode/bin:$PATH"
 export PATH="$HOME/.local/share/fnm/node-versions/v24.18.0/installation/bin:$PATH"
 
 . "$HOME/.atuin/bin/env"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
