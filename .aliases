@@ -24,6 +24,7 @@ alias t="tmux"
 alias mux="tmuxinator"
 alias bb="bundle"
 alias C="clear"
+alias sg="ast-grep"
 
 # Detect which `ls` flavor is in use
 if ls --color >/dev/null 2>&1; then # GNU `ls`
