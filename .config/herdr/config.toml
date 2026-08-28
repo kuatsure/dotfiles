@@ -1,1 +1,301 @@
+# =============================================================================
+# General
+# =============================================================================
+
 onboarding = false
+
+# =============================================================================
+# Terminal
+# =============================================================================
+
+[terminal]
+# New panes/tabs/workspaces inherit the current pane/workspace directory.
+# This replaces the tmux split-window -c / z "$dir" gymnastics.
+new_cwd = "follow"
+
+# Empty = use $SHELL.
+default_shell = ""
+
+# On Linux this keeps normal non-login shell behavior.
+shell_mode = "auto"
+
+# =============================================================================
+# Theme
+# =============================================================================
+
+[theme]
+name = "dracula"
+auto_switch = false
+
+# =============================================================================
+# UI
+# =============================================================================
+
+[ui]
+window_title = "{hostname}: {workspace}"
+
+tab_bar_right = [{ type = "zoom" }, { type = "datetime", format = "%H:%M" }]
+tab_bar_right_separator = " · "
+
+# Windows/tabs are now the primary organizational unit.
+tab_bar_position = "bottom"
+
+# Don't burn a row when there's only one tab.
+hide_tab_bar_when_single_tab = true
+
+# Panes are secondary, so keep them visually simple.
+pane_borders = true
+pane_scrollbars = false
+pane_gaps = false
+
+# You don't rely heavily on mouse navigation.
+mouse_capture = true
+
+# Keep close actions deliberate.
+confirm_close = true
+
+# Don't prompt every time a tab is created.
+prompt_new_tab_name = false
+
+# Agent/workspace sidebar is useful, but doesn't need to own screen space.
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+
+# =============================================================================
+# Notifications
+# =============================================================================
+
+agent_panel_sort = "priority"
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+# Start quiet.
+# Could eventually become "terminal" or "herdr" for OpenCode completion alerts.
+delivery = "off"
+
+[ui.sound]
+enabled = false
+
+# =============================================================================
+# Sessions / Persistence
+# =============================================================================
+
+[session]
+# Herdr can restore supported agent conversations.
+resume_agents_on_restore = true
+
+# =============================================================================
+# Worktrees
+# =============================================================================
+
+[worktrees]
+# Keep Herdr-managed worktrees out of the main checkout tree.
+directory = "~/.herdr/worktrees"
+
+# =============================================================================
+# Keybindings
+#
+# Main rule:
+# Preserve tmux muscle memory where the behavior still exists.
+# Do NOT reuse familiar keys for unrelated Herdr behavior.
+# =============================================================================
+
+[keys]
+# ---------------------------------------------------------------------------
+# Prefix
+#
+# tmux:
+#   set -g prefix C-Space
+# ---------------------------------------------------------------------------
+
+prefix = "ctrl+space"
+
+# ---------------------------------------------------------------------------
+# Config
+#
+# tmux:
+#   C-Space r
+# ---------------------------------------------------------------------------
+
+reload_config = "prefix+r"
+
+# ---------------------------------------------------------------------------
+# Workspaces / Projects
+#
+# tmux:
+#   C-Space s -> sesh picker
+#
+# A Herdr workspace maps pretty closely to the project/session level
+# you're actually using.
+# ---------------------------------------------------------------------------
+
+workspace_picker = "prefix+w"
+goto = "prefix+s"
+
+# ---------------------------------------------------------------------------
+# Tabs / Windows
+#
+# Your current mental model:
+#
+# workspace
+# ├── project tab
+# │   ├── nvim
+# │   └── project-specific opencode
+# ├── server tab
+# │   └── pnpm dev
+# ├── another server tab
+# └── ...
+# ---------------------------------------------------------------------------
+
+# Explicit next/previous tab bindings.
+#
+# These weren't core tmux bindings in your pasted config, but they're useful
+# now that windows/tabs have become the primary navigation layer.
+next_tab = "prefix+n"
+previous_tab = "prefix+p"
+
+# Optional indexed tab switching.
+switch_tab = "prefix+1..9"
+
+# tmux:
+#   C-Space C -> confirm-before kill-window
+#
+# Herdr handles confirmation through ui.confirm_close.
+close_tab = "prefix+shift+c"
+
+# ---------------------------------------------------------------------------
+# IMPORTANT RESERVED KEY
+#
+# tmux:
+#   C-Space b -> last-window
+#
+# Herdr currently exposes previous_tab but not a true MRU/last-tab action.
+#
+# DO NOT assign prefix+b to some unrelated action.
+#
+# prefix+b intentionally remains unused for now.
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# Panes
+#
+# Panes are now secondary, but v/V are worth preserving because the
+# nvim + OpenCode project tab is a legitimate split use-case.
+#
+# tmux:
+#   v -> split-window -h   (side-by-side)
+#   V -> split-window -v   (stacked)
+#
+# Herdr names these based on the split line:
+#   split_vertical   = side-by-side
+#   split_horizontal = stacked
+# ---------------------------------------------------------------------------
+
+split_vertical = "prefix+v"
+split_horizontal = "prefix+shift+v"
+
+# ---------------------------------------------------------------------------
+# Pane navigation
+#
+# Intentionally NOT recreating the old direct C-h/j/k/l Vim-aware behavior.
+#
+# Your workflow is now tab/window-first, so that complexity doesn't deserve
+# to be part of the baseline config.
+#
+# Prefix-based pane movement remains available for the occasional split.
+# ---------------------------------------------------------------------------
+
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# ---------------------------------------------------------------------------
+# Pane lifecycle
+# ---------------------------------------------------------------------------
+
+# Not inherited from your tmux config, but a sensible complement to v/V.
+close_pane = "prefix+x"
+
+# Useful when the project tab has nvim + OpenCode.
+zoom = "prefix+z"
+
+# ---------------------------------------------------------------------------
+# Copy mode
+# ---------------------------------------------------------------------------
+
+copy_mode = "prefix+["
+
+# ---------------------------------------------------------------------------
+# Detach
+# ---------------------------------------------------------------------------
+
+detach = "prefix+d"
+
+# ---------------------------------------------------------------------------
+# Help
+# ---------------------------------------------------------------------------
+
+help = "prefix+?"
+
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "open scratch terminal"
+width = "80%"
+height = "80%"
+
+# =============================================================================
+# Intentionally omitted from the initial migration
+# =============================================================================
+#
+# OLD:
+#
+#   C-Space a
+#   C-Space ;
+#
+# Both were:
+#   switch-client -l
+#
+# Herdr doesn't currently expose an exact "last workspace/client" equivalent.
+# Keep these keys unused rather than changing their meaning.
+#
+#
+# OLD:
+#
+#   H/J/K/L pane resizing
+#
+# Since panes are now secondary, don't port these until there's evidence you
+# actually miss them.
+#
+#
+# OLD:
+#
+#   direct C-h/j/k/l smart Vim navigation
+#
+# Same reason: avoid rebuilding pane-heavy machinery into a tab-first workflow.
+#
+#
+# OLD:
+#
+#   tmux visual-activity / monitor-activity
+#
+# Herdr has native agent state / notifications, so this deserves a separate
+# decision instead of trying to emulate tmux activity flags.
+#
+#
+# OLD:
+#
+#   TPM
+#
+# Not applicable.
+#
+#
+# OLD:
+#
+#   status-left / status-right / window-status-format
+#
+# Tokyo Night + Herdr's native tab/sidebar UI replaces the custom tmux status
+# plumbing rather than translating it character-for-character.
