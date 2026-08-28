@@ -25,6 +25,7 @@ alias mux="tmuxinator"
 alias bb="bundle"
 alias C="clear"
 alias sg="ast-grep"
+alias bat="batcat"
 
 # Detect which `ls` flavor is in use
 if ls --color >/dev/null 2>&1; then # GNU `ls`
