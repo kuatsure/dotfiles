@@ -130,5 +130,29 @@ set -o vi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+. "$HOME/.cargo/env"
+
+. "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell bash)"
+fi
+
+export FZF_CTRL_R_COMMAND=
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# Pi
+export PATH="$HOME/.local/share/fnm/node-versions/v24.18.0/installation/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
 eval "$(starship init bash)"
+eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
+eval "$(mise activate bash)"
+eval "$(atuin init bash)"
