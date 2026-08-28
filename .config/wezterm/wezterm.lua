@@ -16,8 +16,8 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'tokyonight'
 
-config.window_background_opacity = 0.5
-config.kde_window_background_blur = true
+config.window_background_opacity = 0.75
+config.wayland_window_background_blur = true
 
 config.font = wezterm.font 'FiraMono Nerd Font Mono'
 config.window_decorations = 'NONE'
