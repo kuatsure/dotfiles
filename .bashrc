@@ -149,6 +149,10 @@ fi
 
 export FZF_CTRL_R_COMMAND=
 
+# Ignore a leaked Kitty keyboard-protocol response after tuios detaches.
+bind -m emacs '"\e[?5u": ""'
+bind -m vi-command '"\e[?5u": ""'
+
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
