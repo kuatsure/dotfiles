@@ -34,21 +34,19 @@ auto_switch = false
 [ui]
 window_title = "{hostname}: {workspace}"
 
-tab_bar_right = [{ type = "zoom" }, { type = "datetime", format = "%H:%M" }]
+tab_bar_right = [{ type = "zoom" }, { type = "hostname" }, { type = "command", command = "basename \"$HERDR_ACTIVE_PANE_CWD\"", interval_seconds = 2 }, { type = "datetime", format = "%H:%M" }]
 tab_bar_right_separator = " · "
 
 # Windows/tabs are now the primary organizational unit.
 tab_bar_position = "bottom"
 
-# Don't burn a row when there's only one tab.
-hide_tab_bar_when_single_tab = true
+hide_tab_bar_when_single_tab = false
 
 # Panes are secondary, so keep them visually simple.
 pane_borders = true
 pane_scrollbars = false
 pane_gaps = false
 
-# You don't rely heavily on mouse navigation.
 mouse_capture = true
 
 # Keep close actions deliberate.
@@ -72,10 +70,24 @@ show_agent_labels_on_pane_borders = true
 [ui.toast]
 # Start quiet.
 # Could eventually become "terminal" or "herdr" for OpenCode completion alerts.
-delivery = "off"
+delivery = "herdr"
 
 [ui.sound]
-enabled = false
+enabled = true
+
+[ui.sidebar.agents]
+row_gap = 0
+rows = [
+  ["state_icon", "agent", "state_text"],
+  ["workspace", "tab"],
+]
+
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace"],
+  ["branch", "git_status"],
+]
 
 # =============================================================================
 # Sessions / Persistence
@@ -241,11 +253,11 @@ help = "prefix+?"
 
 [[keys.command]]
 key = "prefix+t"
-type = "popup"
+type = "pane"
 command = "exec \"${SHELL:-sh}\""
 description = "open scratch terminal"
-width = "80%"
-height = "80%"
+# width = "80%"
+# height = "80%"
 
 # =============================================================================
 # Intentionally omitted from the initial migration
