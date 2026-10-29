@@ -2,20 +2,92 @@
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
   "default_agent": "plan",
-  "autoupdate": false,
-  "permission": {
-    "skill": {
-      "*": "allow",
-    },
-    "bash": {
-      "rm -rf *": "ask",
-      "git commit": "deny",
-      "git rebase": "deny",
-      "git push": "deny",
-      "git pull": "ask",
-      "git merge": "deny",
-      "git stash": "ask",
-      "git reset": "deny"
+  "update": "notify",
+  "mcp": {
+    "servers": {
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "chrome-devtools-mcp@latest",
+          "--no-usage-statistics",
+          "--no-performance-crux"
+        ],
+        "disabled": true
+      },
+      "playwright": {
+        "type": "local",
+        "command": [
+          "npx",
+          "@playwright/mcp@latest"
+        ],
+        "disabled": true
+      },
+      "shortcut": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "-g",
+          "@shortcut/mcp@latest"
+        ],
+        "environment": {
+          "SHORTCUT_API_TOKEN": "{env:SHORTCUT_API_TOKEN}"
+        },
+        "disabled": true
+      }
     }
   },
+  "permissions": [
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "rm -rf *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git commit",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git rebase",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git push",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git pull",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git merge",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git stash",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git reset",
+      "effect": "deny"
+    }
+  ]
 }
