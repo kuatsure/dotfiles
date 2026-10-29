@@ -125,6 +125,10 @@ fi
 
 set -o vi
 
+bind 'set show-mode-in-prompt on'
+bind 'set vi-ins-mode-string ""'
+bind 'set vi-cmd-mode-string "\1\e[1;35m\2N \1\e[0m\2"'
+
 source <(surecast completions bash)
 
 # . "$HOME/.asdf/asdf.sh"
