@@ -158,6 +158,9 @@ export PATH="$HOME/.local/share/fnm/node-versions/v24.18.0/installation/bin:$PAT
 . "$HOME/.atuin/bin/env"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
+#
+# Added by the Hunk installer (https://hunk.dev)
+export PATH="$HOME/.hunk/bin":"$PATH"
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
